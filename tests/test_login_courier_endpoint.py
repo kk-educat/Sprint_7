@@ -26,7 +26,7 @@ class TestLoginCourier:
 
     @allure.title('Проверка возврата ошибки на запрос без одного из полей')
     @pytest.mark.parametrize('missed_element', ['login', 'password'])
-    def test_no_necessarily_param_error(self, courier_data, missed_element):
+    def test_login_no_necessarily_param_error(self, courier_data, missed_element):
         # создаем курьера
         response = ClientAPI().create_courier(courier_data)
         assert 201 == response.status_code

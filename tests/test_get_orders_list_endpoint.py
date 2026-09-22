@@ -7,7 +7,7 @@ class TestGetOrdersList:
     
     @allure.title('Проверка получения списка заказов')
     @allure.description('Проверяем, что в теле ответа возвращается список заказов (поле orders)')
-    def test_create_order_without_color_success(self):
+    def test_get_orders_list_success(self):
         # отправляем тестируемый запрос
         response = ClientAPI().get_orders_list()
         # ПРОВЕРКА РЕЗУЛЬТАТА

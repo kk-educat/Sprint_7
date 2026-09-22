@@ -28,7 +28,7 @@ class TestCreateCourier:
 
     @allure.title('Проверка возврата ошибки при отсутствии одного из обязательных полей')
     @pytest.mark.parametrize('missed_element', ["login", "password"])
-    def test_no_necessarily_param_error(self, courier_data, missed_element):
+    def test_create_courier_no_necessarily_param_error(self, courier_data, missed_element):
         # удаляем из тела запроса один из элементов и выполняем запрос
         del courier_data[missed_element]
         response = ClientAPI().create_courier(courier_data)
