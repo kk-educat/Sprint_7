@@ -43,3 +43,12 @@ def order_data():
         "comment": "No comments"
     }
     return payload
+
+@pytest.fixture
+def deleted_order_track():
+    # возвращаем в тест-кейс словарь, в который тест-кейс сохранит track созданного заказа
+    deleted_order_track = {'track': 0}
+    yield deleted_order_track
+    # когда тест-кейс отработает, удаляем созданный в нем заказ, если значение track было сохранено
+    if deleted_order_track["track"] != 0:
+        ClientAPI().cancel_order(deleted_order_track['track'])
